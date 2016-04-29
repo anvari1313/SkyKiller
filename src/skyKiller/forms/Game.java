@@ -136,7 +136,15 @@ public class Game extends Form {
 		addMouseMotionListener(new MouseMotionListener() {
 			@Override
 			public void mouseDragged(MouseEvent mouseEvent) {
-
+				mousePositionX = DEFAULT_WIDTH / 2.0 - mouseEvent.getX();
+				mousePositionY = shooterBaseImageY - mouseEvent.getY();
+				shooterAngle= Math.acos(mousePositionX / (DEFAULT_WIDTH / 2.0));
+				rotateShooterTube();
+				repaint();
+				if (mouseEvent.getModifiers() == 16 && (isLeftHanded))
+					fireShooterTube();
+				else if (mouseEvent.getModifiers() == 4 && (!isLeftHanded))
+					fireShooterTube();
 			}
 
 			@Override

@@ -44,9 +44,54 @@ public class Menu extends Form {
 	private void putUIElements(){
 		playerNameJLable.setLocation(10,30);
 		playerNameJLable.setSize(new Dimension(160,30));
+		setBackground(Color.WHITE);
+		playerNameJLable.setBackground(Color.WHITE);
 		add(playerNameJLable);
+		playerNameJText.setBackground(Color.WHITE);
 		add(playerNameJText);
-		playerNameJText.addFocusListener(new FocusEffector());
+
+		playerNameJText.addMouseListener(new MouseListener() {
+			@Override
+			public void mouseClicked(MouseEvent mouseEvent) {
+
+			}
+
+			@Override
+			public void mousePressed(MouseEvent mouseEvent) {
+
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent mouseEvent) {
+
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent mouseEvent) {
+				playerNameJText.setBackground(Color.LIGHT_GRAY);
+				playerNameJLable.setForeground(Color.RED);
+			}
+
+			@Override
+			public void mouseExited(MouseEvent mouseEvent) {
+				playerNameJText.setBackground(Color.WHITE);
+				playerNameJLable.setForeground(Color.BLACK);
+			}
+		});
+		playerNameJText.addFocusListener(new FocusListener() {
+			@Override
+			public void focusGained(FocusEvent focusEvent) {
+				playerNameJText.setBackground(Color.LIGHT_GRAY);
+				playerNameJLable.setForeground(Color.RED);
+			}
+
+			@Override
+			public void focusLost(FocusEvent focusEvent) {
+				playerNameJText.setBackground(Color.WHITE);
+				playerNameJLable.setForeground(Color.BLACK);
+			}
+		});
+
 		playerNameJText.setLocation(170,30);
 		playerNameJText.setSize(new Dimension(120,30));
 		rightHandModeJRadio.addFocusListener(new FocusEffector());
